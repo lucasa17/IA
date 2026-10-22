@@ -20,6 +20,7 @@ def home():
         "versao": "1.0"
     })
 
+#Rota predict
 @app.route("/api/predict", methods=["POST"])
 def predict():
     dados = request.get_json(force=True)   
@@ -35,5 +36,4 @@ def predict():
     })
 
 if __name__ == "__main__":
-    app.run(port=5000)
-
+    app.run(port=5050)

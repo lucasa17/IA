@@ -31,4 +31,3 @@ pickle.dump(clf, open('model.pkl','wb')) # salvando o modelo
 pickle.dump(iris_list,open('names.pkl','wb')) # salvando os identificadores de saida
 
 print("Modelo e lista de nomes exportados com sucesso!")
-
