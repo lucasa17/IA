@@ -8,8 +8,8 @@ app = Flask(__name__)
 CORS(app) # Permite requisições de origens DIFERENTES
 
 # PREENCHA A LACUNA ABAIXO (Carregar os arquivos salvos):
-model = pickle.load(open("model.pkl", "rb"))
-names = pickle.load(open("names.pkl", "rb"))
+model = pickle.load(open("model.pkl","rb"))
+names = pickle.load(open("names.pkl","rb"))
 
 # Rota principal para testar se a API está online
 @app.route("/", methods=["GET"])
@@ -20,10 +20,9 @@ def home():
         "versao": "1.0"
     })
 
-#Rota predict
 @app.route("/api/predict", methods=["POST"])
 def predict():
-    dados = request.get_json(force=True)   
+    dados = request.get_json(force=True)
     # Exemplo de dados recebidos: {"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.2}
     valores_entrada = list(dados.values())
     array_features = np.array([valores_entrada])
@@ -35,5 +34,6 @@ def predict():
         "predicao": nome_especie
     })
 
+
 if __name__ == "__main__":
-    app.run(port=5050)
+    app.run(port=5001)
